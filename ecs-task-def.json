@@ -19,17 +19,25 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 256,
-      "memoryReservation": 128,
+      "memory": null,
+      "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "556476728460.dkr.ecr.us-east-1.amazonaws.com/snehacloudops:latest",
+      "image": "registry.hub.docker.com/library/busybox:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
       "disableNetworking": null,
       "interactive": null,
-      "healthCheck": null,
+      "healthCheck": {
+        "retries": 3,
+        "command": [
+          "echo \"Hello World\""
+        ],
+        "timeout": 5,
+        "interval": 30,
+        "startPeriod": null
+      },
       "essential": true,
       "links": null,
       "hostname": null,
@@ -40,7 +48,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "my-py-1"
+      "name": "busybox"
     }
   ],
   "placementConstraints": [],
@@ -50,20 +58,20 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:556476728460:task-definition/my-ecs-task-def-1:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:556476728460:task-definition/my-ecs-task-def-1:5",
   "family": "my-ecs-task-def-1",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
     },
     {
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+      "name": "ecs.capability.container-health-check"
     }
   ],
   "pidMode": null,
@@ -73,7 +81,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 1,
+  "revision": 5,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
