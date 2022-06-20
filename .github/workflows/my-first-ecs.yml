@@ -98,6 +98,7 @@ jobs:
       with:
          task-definition: ${{ steps.task-def.outputs.task-definition }}
          cluster: ${{ env.ECS_CLUSTER }}
+         count: 1
          started-by: github-actions-${{ github.actor }}
          wait-for-finish: true
          
