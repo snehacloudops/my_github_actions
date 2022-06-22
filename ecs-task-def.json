@@ -19,25 +19,17 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": null,
+      "memory": 128,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "registry.hub.docker.com/library/busybox:latest",
+      "image": "556476728460.dkr.ecr.us-east-1.amazonaws.com/snehacloudops:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
       "disableNetworking": null,
       "interactive": null,
-      "healthCheck": {
-        "retries": 3,
-        "command": [
-          "echo \"Hello World\""
-        ],
-        "timeout": 5,
-        "interval": 30,
-        "startPeriod": null
-      },
+      "healthCheck": null,
       "essential": true,
       "links": null,
       "hostname": null,
@@ -48,40 +40,34 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "busybox"
+      "name": "my-py"
     }
   ],
   "placementConstraints": [],
-  "memory": "256",
+  "memory": null,
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:556476728460:task-definition/my-ecs-task-def-1:5",
-  "family": "my-ecs-task-def-1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:556476728460:task-definition/ecs-task-def:1",
+  "family": "ecs-task-def",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.container-health-check"
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
     }
   ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
-  "networkMode": null,
+  "networkMode": "bridge",
   "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 5,
+  "cpu": null,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
