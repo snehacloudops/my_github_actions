@@ -39,7 +39,7 @@ on:
       run_worker_task:
         description: 'Enter yes to run worker task, else enter no'
         required: true
-        default: no
+        default: 'no'
   
 
 env:
