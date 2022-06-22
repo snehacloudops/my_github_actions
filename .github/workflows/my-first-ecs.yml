@@ -36,6 +36,10 @@ on:
         description: 'Enter the Image tag to be deployed'
         required: true
         default: latest
+      run_worker_task:
+        description: 'Enter yes to run worker task, else enter no'
+        required: true
+        default: no
   
 
 env:
@@ -105,6 +109,7 @@ jobs:
         
     - name: Run Task on Amazon ECS
       uses: smitp/amazon-ecs-run-task@v1
+      if: github.event.inputs.run_worker_task == 'yes'
       with:
          task-definition: ${{ steps.task-def.outputs.task-definition }}
          cluster: ${{ env.ECS_CLUSTER }}
